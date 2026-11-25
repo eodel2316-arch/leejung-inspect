@@ -282,8 +282,8 @@
     if (cl.scoring === 'deduct') {
       ctrl = `<div class="seg3" role="group" aria-label="${esc(it.title)} 채점">
           <button class="${s.done && !s.light && !s.big ? 'on-ok' : ''}" data-act="good" data-no="${it.no}">문제 없음</button>
-          <button class="${s.light ? 'on-part' : ''}" data-act="light" data-no="${it.no}">가벼운 문제<small>−1${s.light ? ` × ${s.light}` : ''}</small></button>
-          <button class="${s.big ? 'on-bad' : ''}" data-act="big" data-no="${it.no}">큰 문제<small>−3${s.big ? ` × ${s.big}` : ''}</small></button>
+          <button class="num ${s.light ? 'on-part' : ''}" data-act="light" data-no="${it.no}" aria-label="가벼운 문제 1점 빼기">−1${s.light ? `<small>${s.light}번</small>` : ''}</button>
+          <button class="num ${s.big ? 'on-bad' : ''}" data-act="big" data-no="${it.no}" aria-label="큰 문제 3점 빼기">−3${s.big ? `<small>${s.big}번</small>` : ''}</button>
         </div>
         ${(s.light || s.big) ? `<button class="undo" data-act="undo" data-no="${it.no}">감점 하나 취소</button>` : ''}
         <dl class="ex"><dt>가벼운 문제</dt><dd>${esc(it.light)}</dd><dt>큰 문제</dt><dd>${esc(it.big)}</dd></dl>`;
